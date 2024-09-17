@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- Nota: Este elemento ya incluye el elemento "context:annotation-config" para habilitar el uso de anotaciones -->
+	<context:component-scan base-package="com.bolsadeideas.ejemplos" />
+    
+    <!-- declaramos bean "direccion1" e inyectamos los valores escalares(se usan los métodos setter para realizar la inyección de dependencias) -->
+    <bean id="direccion1" class="com.bolsadeideas.ejemplos.Direccion">
+    	<property name="numero" value="111"/>
+    	<property name="calle" value="Av. Apoquindo"/>
+    	<property name="ciudad" value="Santiago"/>
+    	<property name="pais" value="Chile"/>
+    </bean>
+    
+    <!-- declaramos bean "direccion2" e inyectamos los valores escalares(se usan los métodos setter para realizar la inyección de dependencias) -->
+    <bean id="direccion2" class="com.bolsadeideas.ejemplos.Direccion">
+    	<property name="numero" value="56"/>
+    	<property name="calle" value="Calle Alcalá"/>
+    	<property name="ciudad" value="Madrid"/>
+    	<property name="pais" value="España"/>
+    </bean>
+    
+</beans>

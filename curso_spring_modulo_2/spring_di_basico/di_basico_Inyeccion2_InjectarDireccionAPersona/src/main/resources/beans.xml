@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- declaramos bean "persona" e inyectamos los valores escalares y el bean direccion(se usan los métodos setter para realizar la inyección de dependencias) -->
+    <bean id="persona" class="com.bolsadeideas.ejemplos.Persona">
+    	<property name="nombre" value="JHON DOE"/>
+    	<property name="edad" value="34"/>
+    	<property name="peso" value="1.8"/>
+    	<property name="programador" value="1"/> <!-- 1 -> true / 0 -> false -->
+        <property name="direccion" ref="direccion"/>
+    </bean>
+    
+    <!-- declaramos bean "direccion" e inyectamos los valores escalares(se usan los métodos setter para realizar la inyección de dependencias) -->
+    <bean id="direccion" class="com.bolsadeideas.ejemplos.Direccion">
+    	<property name="numero" value="111"/>
+    	<property name="calle" value="Av. Apoquindo"/>
+    	<property name="ciudad" value="Santiago"/>
+    	<property name="pais" value="Chile"/>
+    </bean>
+    
+</beans>

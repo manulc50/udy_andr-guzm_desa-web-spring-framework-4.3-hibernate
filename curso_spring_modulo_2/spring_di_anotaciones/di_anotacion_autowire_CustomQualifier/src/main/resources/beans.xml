@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- habilitamos el uso de anotaciones -->
+	<context:annotation-config />
+
+	<!-- declaramos bean "persona" -->
+	<bean id="persona" class="com.bolsadeideas.ejemplos.Persona" />
+
+	<!-- declaramos bean "direccionCampo" que será inyectado en persona, usando anotación 
+		@Autowired con atributo, si se indica en nuestro Qualifier personalizado "NuestroQualifier" -->
+	<bean id="direccionCampo" class="com.bolsadeideas.ejemplos.DireccionCampo">
+		<qualifier type="NuestroQualifier" value="campo" />
+	</bean>
+	
+	<!-- declaramos bean "direccionCiudad" que será inyectado en persona, usando anotación 
+		@Autowired con atributo, si se indica en nuestro Qualifier personalizado "NuestroQualifier" -->
+	<bean id="direccionCiudad" class="com.bolsadeideas.ejemplos.DireccionCiudad">
+		<qualifier type="NuestroQualifier" value="ciudad" />
+	</bean>
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Creamos un bean de Spring con id "renderer" a partir de la clase "com.bolsadeideas.ejemplos.ImprimeMensajeImpl" -->
+    <bean id="renderer" class="com.bolsadeideas.ejemplos.ImprimeMensajeImpl">
+    	<!-- Inyecta el bean de Spring con id "proveedor" en la propiedad "proveedorMensaje" de este bean a partir del método setter "setProveedorMensaje" de la clase "ImprimeMensajeImpl" -->
+        <property name="proveedorMensaje" ref="proveedorMensaje"/>
+    </bean>
+    <!-- Creamos un bean de Spring con id "proveedorMensaje" a partir de la clase "com.bolsadeideas.ejemplos.HolaMundoProveedorMensaje" -->
+    <bean id="proveedorMensaje" class="com.bolsadeideas.ejemplos.HolaMundoProveedorMensaje">
+    	<!-- Inyecta el bean de Spring con id "propioProveedorSaludo" en la propiedad "proveedorSaludo" de este bean a partir del método setter "setProveedorSaludo" de la clase "HolaMundoProveedorMensaje" -->
+        <property name="proveedorSaludo" ref="propioProveedorSaludo"/>
+    </bean>
+    <!-- Creamos un bean de Spring con id "propioProveedorSaludo" a partir de la clase "com.bolsadeideas.proyecto.ejemplo.PropioProveedorSaludo" -->
+	<bean id="propioProveedorSaludo" class="com.bolsadeideas.ejemplos.PropioProveedorSaludo">
+		<!-- Inyecta el valor "Buenos días, Spring!" en la propiedad "saludo" del bean a partir del método setter "setSaludo" de la clase "PropioProveedorSaludo" -->
+		<property name="saludo" value="Buenos días, Spring!" />
+	</bean>
+</beans>
